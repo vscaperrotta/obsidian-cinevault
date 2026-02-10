@@ -447,6 +447,10 @@
   align-self: flex-end;
 }
 
+.cinevault-modal-show-more-hidden {
+  display: none;
+}
+
 .cinevault-modal-detail-container {
   display: inline-flex;
   gap: 4px;

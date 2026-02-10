@@ -61,7 +61,7 @@ export default class CineVaultView extends ItemView {
     });
 
     header.createEl("p", {
-      text: "CineVault turns your Obsidian vault into a personal movie and TV library. Search OMDb, rate titles, and store your collection in a JSON file within your vault.",
+      text: "CineVault allow you to manageyour favorites movie and tv library into your vault. Search OMDb, rate titles, and store your collection in a json file within your vault.",
       cls: "cinevault-header-text"
     });
 

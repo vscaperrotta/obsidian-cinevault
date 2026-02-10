@@ -59,11 +59,8 @@ export class CineVaultMovieDetailModal extends Modal {
 
       const showMoreButton = plotContainer.createEl("button", {
         text: "Show more",
-        cls: "cinevault-modal-show-more"
-      });
-
-      // Hide button by default; reveal only if the plot is actually truncated
-      showMoreButton.style.display = "none";
+        cls: "cinevault-modal-show-more cinevault-modal-show-more-hidden"
+      })
 
       showMoreButton.addEventListener("click", () => {
         const isExpanded = plotEl.classList.toggle("expanded-plot");
@@ -74,7 +71,7 @@ export class CineVaultMovieDetailModal extends Modal {
       requestAnimationFrame(() => {
         // If content height exceeds container height, it's truncated
         if (plotEl.scrollHeight > plotEl.clientHeight + 1) {
-          showMoreButton.style.display = "inline-block";
+          showMoreButton.removeClass("cinevault-modal-show-more-hidden");
         }
       });
     }
@@ -127,8 +124,6 @@ export class CineVaultMovieDetailModal extends Modal {
       const externalRatingsContainer = modalContainer.createDiv({
         cls: "cinevault-modal-external-ratings"
       });
-
-      console.log('this.movie.ratings', this.movie.ratings)
 
       for (const rating of this.movie.ratings) {
         const ratingEl = externalRatingsContainer.createDiv({ cls: "cinevault-modal-external-rating-element" });

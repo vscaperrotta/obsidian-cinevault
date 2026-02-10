@@ -9,16 +9,11 @@ export function renderOnboarding(
 
   const actions = onboarding.createDiv({ cls: "cinevault-onboarding-actions" });
   const createButton = actions.createEl("button", { text: "Create new library" });
+  createButton.addEventListener("click", onCreate);
 
   if (onLink) {
     actions.createEl("p", { text: "or" });
     const linkButton = actions.createEl("button", { text: "Link existing library" });
-    linkButton.addEventListener("click", () => {
-      onLink();
-    });
+    linkButton.addEventListener("click", onLink);
   }
-
-  createButton.addEventListener("click", () => {
-    onCreate();
-  });
 }

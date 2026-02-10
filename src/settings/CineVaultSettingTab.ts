@@ -17,8 +17,8 @@ export default class CineVaultSettingTab extends PluginSettingTab {
 
     containerEl.empty();
 
-    // Settings
-    new Setting(containerEl).setName("Settings").setHeading();
+    // Configuration
+    new Setting(containerEl).setName("Configuration").setHeading();
     new Setting(containerEl)
       .setName("OMDb API key")
       .setDesc("Enter your OMDb API key. You can get one for free at omdbapi.com")
@@ -80,7 +80,7 @@ export default class CineVaultSettingTab extends PluginSettingTab {
     new Setting(containerEl).setName("Bugfix").setHeading();
     new Setting(containerEl)
       .setName("Report issues")
-      .setDesc("If you encounter any issues with the plugin, please report them on GitHub. Your feedback is invaluable for improving CineVault!")
+      .setDesc("If you encounter any issues with the plugin, please report them. Your feedback is invaluable for improving CineVault!")
       .addButton(button => button
         .setButtonText("GitHub")
         .onClick(() => {
@@ -92,7 +92,7 @@ export default class CineVaultSettingTab extends PluginSettingTab {
     new Setting(containerEl)
       .setName("Donate")
       .setDesc(
-        "If you like this Plugin, consider donating to support continued development."
+        "If you like this plugin, consider donating to support continued development."
       )
       .addButton((bt) => {
         bt.buttonEl.outerHTML =
@@ -139,7 +139,7 @@ export default class CineVaultSettingTab extends PluginSettingTab {
       let createdFile: TFile | undefined;
       if (defaultFile instanceof TFile) {
         await saveLocalData(this.app, defaultFile, createDefaultData());
-        createdFile = defaultFile as TFile;
+        createdFile = defaultFile;
       } else {
         createdFile = await createJsonFile(this.app);
       }
@@ -158,8 +158,8 @@ export default class CineVaultSettingTab extends PluginSettingTab {
 
   private async getLibraryJsonContent(): Promise<string | null> {
     // Prefer a local linked file inside the vault
-    if ((this.plugin as any).localJsonPath) {
-      const localPath = (this.plugin as any).localJsonPath as string;
+    if (this.plugin.localJsonPath) {
+      const localPath = this.plugin.localJsonPath;
       const file = this.app.vault.getAbstractFileByPath(localPath);
       if (file instanceof TFile) {
         return this.app.vault.read(file);
