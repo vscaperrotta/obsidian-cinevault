@@ -15,13 +15,7 @@ Note: CineVault depends on the OMDb API for search and detailed movie data. You 
 - Clean, responsive UI with grid/list views and compact detail modals.
 
 ### Demo
-
-<p align="center">
-    <video width="640" controls>
-        <source src="./assets/showcase.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</p>
+https://github.com/user-attachments/assets/ce3c88a8-33aa-4486-84ed-3cfffb52b197
 
 ### Screenshots
 
