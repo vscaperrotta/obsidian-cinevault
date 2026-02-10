@@ -5,8 +5,6 @@ CineVault is a comprehensive Obsidian plugin that transforms your vault into a p
 
 Note: CineVault depends on the OMDb API for search and detailed movie data. You must register at https://www.omdbapi.com/ and obtain an API key to use the search and details features.
 
-
-
 ### Features
 
 - Search movies/series via OMDb and fetch full details (plot, poster, ratings).
@@ -20,21 +18,22 @@ Note: CineVault depends on the OMDb API for search and detailed movie data. You 
 
 <p align="center">
     <video width="640" controls style="margin: 0 auto;">
-        <source src="assets/showcase.mp4">
+        <source src="https://github.com/vscaperrotta/obsidian-plugin-cinevault/blob/master/assets/showcase.mp4">
         Your browser does not support the video tag.
     </video>
 </p>
 
 ### Screenshots
-The vault
+
+Application
 <p align="center">
-    <img src="assets/screenshot1.png" alt="Screenshot 1" width="300" />
-    <img src="assets/screenshot2.png" alt="Screenshot 2" width="300" />
+    <img src="./assets/Screenshot1.png" alt="Screenshot 1" width="300" />
+    <img src="./assets/Screenshot2.png" alt="Screenshot 2" width="300" />
 </p>
 
 Settings
 <p align="center">
-    <img src="assets/screenshot3.png" alt="Screenshot 3" width="300" />
+    <img src="./assets/Screenshot3.png" alt="Screenshot 3" width="300" />
 </p>
 
 1. Download the latest release from the releases page
