@@ -18,7 +18,7 @@ Note: CineVault depends on the OMDb API for search and detailed movie data. You 
 
 <p align="center">
     <video width="640" controls style="margin: 0 auto;">
-        <source src="https://github.com/vscaperrotta/obsidian-plugin-cinevault/blob/master/assets/showcase.mp4">
+        <source src="./assets/showcase.mp4">
         Your browser does not support the video tag.
     </video>
 </p>
