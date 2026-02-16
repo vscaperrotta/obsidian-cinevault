@@ -1,8 +1,8 @@
 import { App, TFile } from "obsidian";
 import type { CineVaultData, CineVaultMovie } from "../types/cinevault";
+import { FOLDER, JSON_NAME } from "src/constants";
 
-const FOLDER = "BoxOffice";
-const DEFAULT_NAME = "libraryStorage.json";
+const DEFAULT_NAME = `${JSON_NAME}.json`;
 
 export function getDefaultPath(folder?: string) {
   const folderPath = folder ?? FOLDER;

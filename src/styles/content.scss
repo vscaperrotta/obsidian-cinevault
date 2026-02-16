@@ -1,18 +1,18 @@
 /* Content */
-.cinevault-content {
+.obs-plugin-content {
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
 }
 
-.cinevault-tabs-container {
+.obs-plugin-tabs-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.cinevault-tab-header {
+.obs-plugin-tab-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,17 +21,17 @@
   padding-bottom: 16px;
 }
 
-.cinevault-tab-buttons {
+.obs-plugin-tab-buttons {
   display: flex;
   gap: 16px;
 }
 
-.cinevault-view-toggle {
+.obs-plugin-view-toggle {
   display: flex;
   gap: 8px;
 }
 
-.cinevault-view-button {
+.obs-plugin-view-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -43,23 +43,23 @@
   cursor: pointer;
 }
 
-.cinevault-view-button:hover {
+.obs-plugin-view-button:hover {
   color: var(--text-normal);
   background: var(--background-secondary);
 }
 
-.cinevault-view-button-active {
+.obs-plugin-view-button-active {
   color: var(--text-normal);
   background: var(--background-secondary) !important;
   border-color: var(--background-modifier-border);
 }
 
-.cinevault-view-button svg {
+.obs-plugin-view-button svg {
   width: 16px;
   height: 16px;
 }
 
-.cinevault-tab-button {
+.obs-plugin-tab-button {
   background: transparent;
   border: none;
   color: var(--text-muted);
@@ -69,23 +69,23 @@
   cursor: pointer;
 }
 
-.cinevault-tab-button:hover {
+.obs-plugin-tab-button:hover {
   color: var(--text-normal);
   background: var(--background-secondary);
 }
 
-.cinevault-tab-button-active {
+.obs-plugin-tab-button-active {
   color: var(--text-normal);
   background: var(--background-secondary) !important;
 }
 
-.cinevault-tab-content {
+.obs-plugin-tab-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.cinevault-movie-actions button {
+.obs-plugin-movie-actions button {
   background: var(--interactive-accent);
   color: var(--text-on-accent);
   border: none;
@@ -95,11 +95,11 @@
   cursor: pointer;
 }
 
-.cinevault-movie-actions button:hover {
+.obs-plugin-movie-actions button:hover {
   filter: brightness(1.05);
 }
 
-.cinevault-import-select {
+.obs-plugin-import-select {
   min-width: 220px;
   padding: 6px 10px;
   border-radius: 6px;
@@ -108,7 +108,7 @@
   color: var(--text-normal);
 }
 
-.cinevault-search {
+.obs-plugin-search {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -116,7 +116,7 @@
   width: 100%;
 }
 
-.cinevault-search-inputs-group {
+.obs-plugin-search-inputs-group {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 12px;
@@ -127,19 +127,19 @@
   }
 }
 
-.cinevault-search-input-container {
+.obs-plugin-search-input-container {
   display: flex;
   gap: 12px;
 }
 
-.cinevault-more-filter {
+.obs-plugin-more-filter {
   display: flex;
   gap: 12px;
   width: 100%;
 }
 
-.cinevault-search-input,
-.cinevault-search-select {
+.obs-plugin-search-input,
+.obs-plugin-search-select {
   width: 100%;
   padding: 8px 12px;
   border-radius: 8px;
@@ -154,13 +154,21 @@
   }
 }
 
-.cinevault-search-results {
+.obs-plugin-search-results {
   display: grid;
   gap: 12px;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.cinevault-search-item {
+.obs-plugin-search-item {
   display: flex;
   gap: 12px;
   padding: 10px;
@@ -170,43 +178,43 @@
   cursor: pointer;
 }
 
-.cinevault-search-item:hover {
+.obs-plugin-search-item:hover {
   filter: brightness(1.03);
 }
 
-.cinevault-search-poster {
+.obs-plugin-search-poster {
   width: 48px;
   height: 72px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.cinevault-search-title {
+.obs-plugin-search-title {
   font-weight: 600;
 }
 
-.cinevault-search-year {
+.obs-plugin-search-year {
   color: var(--text-muted);
   font-size: 13.6px;
 }
 
-.cinevault-search-empty {
+.obs-plugin-search-empty {
   color: var(--text-muted);
   font-size: 14.4px;
 }
 
-.cinevault-movie-actions {
+.obs-plugin-movie-actions {
   display: flex;
   gap: 10px;
   margin-bottom: 16px;
 }
 
-.cinevault-movie-list {
+.obs-plugin-movie-list {
   display: flex;
   flex-direction: column;
 }
 
-.cinevault-movie-row {
+.obs-plugin-movie-row {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -215,38 +223,38 @@
   cursor: pointer;
 }
 
-.cinevault-movie-row:last-child {
+.obs-plugin-movie-row:last-child {
   border-bottom: none;
 }
 
-.cinevault-movie-thumbnail {
+.obs-plugin-movie-thumbnail {
   width: 50px;
   height: 70px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.cinevault-movie-info {
+.obs-plugin-movie-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
   width: 100%;
 }
 
-.cinevault-section {
+.obs-plugin-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
 }
 
-.cinevault-movie-grid {
+.obs-plugin-movie-grid {
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 }
 
-.cinevault-movie-card {
+.obs-plugin-movie-card {
   display: grid;
   gap: 8px;
   padding: 12px;
@@ -256,19 +264,19 @@
   cursor: pointer;
 }
 
-.cinevault-movie-card:hover {
+.obs-plugin-movie-card:hover {
   transform: translateY(-2px);
   transition: transform 0.2s ease;
 }
 
-.cinevault-movie-poster {
+.obs-plugin-movie-poster {
   width: 100%;
   height: 160px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.cinevault-movie-title {
+.obs-plugin-movie-title {
   font-weight: 600;
   font-size: 14px;
   display: -webkit-box;
@@ -277,12 +285,12 @@
   overflow: hidden;
 }
 
-.cinevault-movie-year {
+.obs-plugin-movie-year {
   color: var(--text-muted);
   font-size: 14px;
 }
 
-.cinevault-movie {
+.obs-plugin-movie {
   padding: 14px;
   border-radius: 10px;
   border: var(--border-width) solid var(--background-modifier-border);
@@ -290,22 +298,22 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.cinevault-field {
+.obs-plugin-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-bottom: 10px;
 }
 
-.cinevault-field label {
+.obs-plugin-field label {
   font-size: 12.8px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-muted);
 }
 
-.cinevault-field input,
-.cinevault-field textarea {
+.obs-plugin-field input,
+.obs-plugin-field textarea {
   padding: 8px 10px;
   border-radius: 6px;
   border: var(--border-width) solid var(--background-modifier-border);
@@ -313,38 +321,38 @@
   color: var(--text-normal);
 }
 
-.cinevault-value {
+.obs-plugin-value {
   border-radius: 6px;
   padding: 8px 0;
   color: var(--text-normal);
 }
 
-.cinevault-stars {
+.obs-plugin-stars {
   display: flex;
   gap: 4px;
   color: var(--text-muted);
 }
 
-.cinevault-star {
+.obs-plugin-star {
   font-size: 17.6px;
   cursor: pointer;
 }
 
-.cinevault-star.active {
+.obs-plugin-star.active {
   color: var(--color-yellow);
 }
 
-.cinevault-star.readonly {
+.obs-plugin-star.readonly {
   cursor: default;
 }
 
 
-.cinevault-danger {
+.obs-plugin-danger {
   border-color: var(--background-modifier-error);
   color: var(--text-error);
 }
 
-.cinevault-movie button {
+.obs-plugin-movie button {
   background: var(--background-modifier-error);
   color: var(--text-on-accent);
   border: none;
@@ -353,6 +361,6 @@
   cursor: pointer;
 }
 
-.cinevault-movie button:hover {
+.obs-plugin-movie button:hover {
   filter: brightness(0.95);
 }

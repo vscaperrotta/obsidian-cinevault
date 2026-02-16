@@ -9,8 +9,6 @@ import { JsonFileSuggestModal } from "../ui/JsonFileSuggestModal";
 import {
   createEmptyMovie,
   createJsonFile,
-  getDefaultPath,
-  getFolder,
   loadLocalFile,
   saveLocalData
 } from "../services/libraryStorage";
@@ -55,15 +53,15 @@ export default class CineVaultView extends ItemView {
     const container = this.containerEl.children[1] as HTMLElement;
     container.empty();
 
-    const header = container.createDiv({ cls: "cinevault-header" });
+    const header = container.createDiv({ cls: "obs-plugin-header" });
     header.createEl("h1", {
       text: "BoxOffice",
-      cls: "cinevault-title"
+      cls: "obs-plugin-title"
     });
 
     header.createEl("p", {
       text: "This plugin allow you to manage your favorites movie and tv library into your vault.\nSearch OMDb, rate titles, and store your collection in a json file within your vault or in a separate vault.",
-      cls: "cinevault-header-text"
+      cls: "obs-plugin-header-text"
     });
 
     if (!this.data) {
@@ -85,21 +83,21 @@ export default class CineVaultView extends ItemView {
     }
 
     // Search area
-    const searchBox = container.createDiv({ cls: "cinevault-search" });
+    const searchBox = container.createDiv({ cls: "obs-plugin-search" });
 
-    const searchInputsGroup = searchBox.createDiv({ cls: "cinevault-search-inputs-group" });
+    const searchInputsGroup = searchBox.createDiv({ cls: "obs-plugin-search-inputs-group" });
 
     // Search title
-    const searchInputContainer = searchInputsGroup.createDiv({ cls: "cinevault-search-input-container" });
+    const searchInputContainer = searchInputsGroup.createDiv({ cls: "obs-plugin-search-input-container" });
     const searchInput = searchInputContainer.createEl("input", {
-      cls: "cinevault-search-input",
+      cls: "obs-plugin-search-input",
       attr: {
         placeholder: "Search"
       }
     });
 
     const filterSwitch = searchInputContainer.createEl("button", {
-      cls: "cinevault-search-clear",
+      cls: "obs-plugin-search-clear",
       attr: {
         "aria-label": "More filter",
         title: "More filter"
@@ -108,7 +106,7 @@ export default class CineVaultView extends ItemView {
 
     setIcon(filterSwitch, "sliders-horizontal");
 
-    const moreFilterContainer = searchInputsGroup.createDiv({ cls: "cinevault-more-filter" });
+    const moreFilterContainer = searchInputsGroup.createDiv({ cls: "obs-plugin-more-filter" });
 
     moreFilterContainer.style.display = "none";
 
@@ -122,12 +120,12 @@ export default class CineVaultView extends ItemView {
 
     // Year filter
     const yearInput = moreFilterContainer.createEl("input", {
-      cls: "cinevault-search-input",
+      cls: "obs-plugin-search-input",
       attr: { placeholder: "Year" }
     });
 
     // Type filter
-    const typeSelect = moreFilterContainer.createEl("select", { cls: "cinevault-search-select" });
+    const typeSelect = moreFilterContainer.createEl("select", { cls: "obs-plugin-search-select" });
     typeSelect.createEl("option", {
       text: "All",
       attr: {
@@ -146,7 +144,7 @@ export default class CineVaultView extends ItemView {
     // Container for search results, created on demand
     let resultsList: HTMLElement | null = null;
 
-    const content = container.createDiv({ cls: "cinevault-content" });
+    const content = container.createDiv({ cls: "obs-plugin-content" });
     this.moviesContainer = content;
 
     this.renderMovies(content);
@@ -161,13 +159,13 @@ export default class CineVaultView extends ItemView {
       const results = await searchOmdb(query, this.plugin.omdbApiKey, type, year);
 
       if (!results || results.length === 0) {
-        if (!resultsList) resultsList = searchBox.createDiv({ cls: "cinevault-search-results" });
+        if (!resultsList) resultsList = searchBox.createDiv({ cls: "obs-plugin-search-results" });
         resultsList.empty();
-        resultsList.createEl("div", { text: "No results found.", cls: "cinevault-search-empty" });
+        resultsList.createEl("div", { text: "No results found.", cls: "obs-plugin-search-empty" });
         return;
       }
 
-      if (!resultsList) resultsList = searchBox.createDiv({ cls: "cinevault-search-results" });
+      if (!resultsList) resultsList = searchBox.createDiv({ cls: "obs-plugin-search-results" });
       await this.renderSearchResults(resultsList, results);
     };
 
@@ -211,28 +209,28 @@ export default class CineVaultView extends ItemView {
     const watched = this.data.movies.filter((movie) => movie.watched);
     const toWatch = this.data.movies.filter((movie) => !movie.watched);
 
-    const tabsContainer = container.createDiv({ cls: "cinevault-tabs-container" });
-    const tabHeader = tabsContainer.createDiv({ cls: "cinevault-tab-header" });
+    const tabsContainer = container.createDiv({ cls: "obs-plugin-tabs-container" });
+    const tabHeader = tabsContainer.createDiv({ cls: "obs-plugin-tab-header" });
 
-    const tabButtons = tabHeader.createDiv({ cls: "cinevault-tab-buttons" });
-    const viewToggle = tabHeader.createDiv({ cls: "cinevault-view-toggle" });
+    const tabButtons = tabHeader.createDiv({ cls: "obs-plugin-tab-buttons" });
+    const viewToggle = tabHeader.createDiv({ cls: "obs-plugin-view-toggle" });
 
     const toWatchButton = tabButtons.createEl("button", {
-      cls: "cinevault-tab-button",
+      cls: "obs-plugin-tab-button",
       text: `To Watch (${toWatch.length})`
     });
 
     const watchedButton = tabButtons.createEl("button", {
-      cls: "cinevault-tab-button",
+      cls: "obs-plugin-tab-button",
       text: `Watched (${watched.length})`
     });
 
     const gridButton = viewToggle.createEl("button", {
-      cls: "cinevault-view-button",
+      cls: "obs-plugin-view-button",
       attr: { "aria-label": "Grid view", title: "Grid view" }
     });
     const listButton = viewToggle.createEl("button", {
-      cls: "cinevault-view-button",
+      cls: "obs-plugin-view-button",
       attr: { "aria-label": "List view", title: "List view" }
     });
 
@@ -240,18 +238,18 @@ export default class CineVaultView extends ItemView {
     setIcon(listButton, "list");
 
     if (this.activeTab === "toWatch") {
-      toWatchButton.classList.add("cinevault-tab-button-active");
+      toWatchButton.classList.add("obs-plugin-tab-button-active");
     } else {
-      watchedButton.classList.add("cinevault-tab-button-active");
+      watchedButton.classList.add("obs-plugin-tab-button-active");
     }
 
     if (this.viewMode === "grid") {
-      gridButton.classList.add("cinevault-view-button-active");
+      gridButton.classList.add("obs-plugin-view-button-active");
     } else {
-      listButton.classList.add("cinevault-view-button-active");
+      listButton.classList.add("obs-plugin-view-button-active");
     }
 
-    const tabContent = tabsContainer.createDiv({ cls: "cinevault-tab-content" });
+    const tabContent = tabsContainer.createDiv({ cls: "obs-plugin-tab-content" });
     const activeMovies = this.activeTab === "toWatch" ? toWatch : watched;
     const activeTitle = this.activeTab === "toWatch" ? "To Watch" : "Watched";
     this.renderMovieSection(tabContent, activeTitle, activeMovies);
@@ -284,7 +282,7 @@ export default class CineVaultView extends ItemView {
   }
 
   private renderMovieSection(container: HTMLElement, title: string, movies: CineVaultMovie[]) {
-    const section = container.createDiv({ cls: "cinevault-section" });
+    const section = container.createDiv({ cls: "obs-plugin-section" });
     // section.createEl("h3", { text: title });
 
     if (movies.length === 0) {
@@ -293,7 +291,7 @@ export default class CineVaultView extends ItemView {
     }
 
     const list = section.createDiv({
-      cls: this.viewMode === "grid" ? "cinevault-movie-grid" : "cinevault-movie-list"
+      cls: this.viewMode === "grid" ? "obs-plugin-movie-grid" : "obs-plugin-movie-list"
     });
 
     if (this.viewMode === "grid") {
@@ -305,9 +303,9 @@ export default class CineVaultView extends ItemView {
 
   private renderMovieGrid(container: HTMLElement, movies: CineVaultMovie[]) {
     movies.forEach((movie) => {
-      const card = container.createDiv({ cls: "cinevault-movie-card" });
-      card.createEl("img", { cls: "cinevault-movie-poster" }).setAttribute("src", movie.poster);
-      card.createEl("div", { text: movie.title, cls: "cinevault-movie-title" });
+      const card = container.createDiv({ cls: "obs-plugin-movie-card" });
+      card.createEl("img", { cls: "obs-plugin-movie-poster" }).setAttribute("src", movie.poster);
+      card.createEl("div", { text: movie.title, cls: "obs-plugin-movie-title" });
 
       // Build the details string conditionally, only including non-null/undefined values
       const detailsParts: string[] = [];
@@ -319,7 +317,7 @@ export default class CineVaultView extends ItemView {
 
       const detailsText = detailsParts.join(" - ");
       if (detailsText) {
-        card.createEl("div", { text: detailsText, cls: "cinevault-movie-year" });
+        card.createEl("div", { text: detailsText, cls: "obs-plugin-movie-year" });
       }
 
       if (movie.watched) {
@@ -337,20 +335,20 @@ export default class CineVaultView extends ItemView {
   private renderMovieList(container: HTMLElement, movies: CineVaultMovie[]) {
     movies.forEach((movie) => {
       const row = container.createDiv({
-        cls: "cinevault-movie-row"
+        cls: "obs-plugin-movie-row"
       });
       const poster = row.createEl("img", {
-        cls: "cinevault-movie-thumbnail"
+        cls: "obs-plugin-movie-thumbnail"
       });
       poster.setAttribute("src", movie.poster || "");
 
       const info = row.createDiv({
-        cls: "cinevault-movie-info"
+        cls: "obs-plugin-movie-info"
       });
 
       info.createEl("div", {
         text: movie.title,
-        cls: "cinevault-movie-title"
+        cls: "obs-plugin-movie-title"
       });
 
       // Build the details string conditionally, only including non-null/undefined values
@@ -370,7 +368,7 @@ export default class CineVaultView extends ItemView {
       if (detailsText) {
         info.createEl("div", {
           text: detailsText,
-          cls: "cinevault-movie-year"
+          cls: "obs-plugin-movie-year"
         });
       }
 
@@ -450,18 +448,17 @@ export default class CineVaultView extends ItemView {
     }
   }
 
-
   private async renderSearchResults(container: HTMLElement, results: any[]) {
     container.empty();
 
     results.forEach((result) => {
-      const item = container.createDiv({ cls: "cinevault-search-item" });
+      const item = container.createDiv({ cls: "obs-plugin-search-item" });
       if (result.poster) {
-        item.createEl("img", { cls: "cinevault-search-poster" }).setAttribute("src", result.poster);
+        item.createEl("img", { cls: "obs-plugin-search-poster" }).setAttribute("src", result.poster);
       }
-      const info = item.createDiv({ cls: "cinevault-search-info" });
-      info.createEl("div", { text: result.title, cls: "cinevault-search-title" });
-      info.createEl("div", { text: result.year, cls: "cinevault-search-year" });
+      const info = item.createDiv({ cls: "obs-plugin-search-info" });
+      info.createEl("div", { text: result.title, cls: "obs-plugin-search-title" });
+      info.createEl("div", { text: result.year, cls: "obs-plugin-search-year" });
 
       item.addEventListener("click", () => {
         new CineVaultMovieActionModal(this.plugin.app, result, async (watched) => {

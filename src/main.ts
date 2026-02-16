@@ -1,5 +1,5 @@
 import { Plugin } from "obsidian";
-import { VIEW_TYPE } from "./constants";
+import { VIEW_TYPE, FOLDER } from "./constants";
 import pluginView from "./views/pluginView";
 import CineVaultSettingTab from "./settings/settingsTab";
 
@@ -15,16 +15,14 @@ export default class CineVaultPlugin extends Plugin {
 	localJsonPath: string | null = null;
 	omdbApiKey: string = "";
 	viewMode: "grid" | "list" = "grid";
-	libraryFolder: string = "BoxOffice";
+	libraryFolder: string = FOLDER;
 
-	// Initialize the plugin and set up event listeners
+	// Load plugin data and register views/settings when the plugin is loaded
 	async onload() {
 		await this.loadPluginData();
 
-		// Add settings tab
 		this.addSettingTab(new CineVaultSettingTab(this.app, this));
 
-		// Register new view
 		this.registerView(
 			VIEW_TYPE,
 			(leaf) => new pluginView(leaf, this)
@@ -44,10 +42,8 @@ export default class CineVaultPlugin extends Plugin {
 		this.localJsonPath = data?.localJsonPath ?? null;
 		this.omdbApiKey = data?.omdbApiKey ?? "";
 		this.viewMode = data?.viewMode ?? "grid";
-		this.libraryFolder = data?.libraryFolder ?? "BoxOffice";
+		this.libraryFolder = data?.libraryFolder ?? FOLDER;
 	}
-
-	// externalJsonPath removed; no-op placeholder removed
 
 	async setOmdbApiKey(apiKey: string) {
 		this.omdbApiKey = apiKey;

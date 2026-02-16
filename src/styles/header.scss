@@ -1,15 +1,15 @@
-.cinevault-header {
+.obs-plugin-header {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin: 0 auto;
   width: 100%;
 
-  .cinevault-title {
+  .obs-plugin-title {
     font-weight: 700;
   }
 
-  .cinevault-header-text {
+  .obs-plugin-header-text {
     color: var(--text-muted);
     white-space: pre-wrap;
   }

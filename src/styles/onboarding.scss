@@ -1,9 +1,9 @@
-.cinevault-onboarding {
+.obs-plugin-onboarding {
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  .cinevault-onboarding-actions {
+  .obs-plugin-onboarding-actions {
     border: var(--border-width) solid var(--background-modifier-border);
     border-radius: 4px;
     display: flex;
@@ -13,7 +13,7 @@
     padding: 32px;
   }
 
-  .cinevault-onboarding-actions p {
+  .obs-plugin-onboarding-actions p {
     color: var(--text-muted);
     font-size: 16px;
   }

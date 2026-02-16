@@ -18,11 +18,11 @@ export class CineVaultMovieActionModal extends Modal {
     contentEl.createEl("h3", { text: this.movie.title });
     contentEl.createEl("p", { text: `${this.movie.year} • ${this.movie.type}` });
     if (this.movie.poster) {
-      contentEl.createEl("img", { cls: "cinevault-modal-detail-poster" }).setAttribute("src", this.movie.poster);
+      contentEl.createEl("img", { cls: "obs-plugin-modal-detail-poster" }).setAttribute("src", this.movie.poster);
     }
     contentEl.createEl("p", { text: this.movie.plot });
 
-    const actions = contentEl.createDiv({ cls: "cinevault-modal-detail-actions" });
+    const actions = contentEl.createDiv({ cls: "obs-plugin-modal-detail-actions" });
     const watchedButton = actions.createEl("button", { text: "Mark as watched" });
     const toWatchButton = actions.createEl("button", { text: "To watch" });
 

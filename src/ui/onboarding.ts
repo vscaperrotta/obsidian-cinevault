@@ -4,10 +4,10 @@ export function renderOnboarding(
   onLink?: () => void
 ) {
   const onboarding = container.createDiv({
-    cls: "cinevault-onboarding"
+    cls: "obs-plugin-onboarding"
   });
 
-  const actions = onboarding.createDiv({ cls: "cinevault-onboarding-actions" });
+  const actions = onboarding.createDiv({ cls: "obs-plugin-onboarding-actions" });
   const createButton = actions.createEl("button", { text: "Create new library" });
   createButton.addEventListener("click", onCreate);
 

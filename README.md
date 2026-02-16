@@ -1,4 +1,4 @@
-# BoxOffice — Obsidian Movie Library
+# BoxOffice — Movie Library
 
 BoxOffice is an Obsidian plugin that turns your vault into a personal library for movies and TV shows. It allows searching data from OMDb, saving a local library as JSON, and managing watchlists and star ratings directly inside Obsidian.
 
@@ -26,14 +26,6 @@ BoxOffice is an Obsidian plugin that turns your vault into a personal library fo
 ## Requirements
 
 - Node.js >= 22.16.0 (for development/build scripts)
-
-## Installation
-
-1. Download the latest release or copy the compiled files into your vault plugin folder: `.obsidian/plugins/boxoffice/` (folder name may vary; use the `id` from `manifest.json`).
-2. Reload Obsidian.
-3. Enable the plugin in Settings → Community Plugins.
-
-Note: During development, use the repository folder inside your vault to enable hot-reload.
 
 ## Development
 
@@ -84,8 +76,6 @@ src/
 └── views/
     └── pluginView.ts          # Main view UI
 ```
-
-For technical details and data models, see `TECHNICAL.md`.
 
 **Version**: 1.0.1
 **Minimum Obsidian Version**: 0.15.0
