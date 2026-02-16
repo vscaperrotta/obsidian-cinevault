@@ -88,17 +88,7 @@ src/
 
 For technical details and data models, see `TECHNICAL.md`.
 
-## Support, Contributing and License
-
-- Contributions welcome: follow the existing style and update TypeScript types as needed.
-- Bugs and feature requests: open an issue in the repository.
-- License: MIT — see the `LICENSE` file.
-
----
-
 **Version**: 1.0.1
 **Minimum Obsidian Version**: 0.15.0
-
-**Author**: Vittorio Scaperrotta — https://vittorioscaperrotta.me/
 
 If you want to support development: https://ko-fi.com/vittorioscaperrotta
